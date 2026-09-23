@@ -1,204 +1,38 @@
 <!doctype html>
 <html lang="ms">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Borang Semakan Buku Latihan Pelajar - MMI 2026">
-  <title>Borang Semakan Buku Latihan MMI 2026</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BSBL MMI 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#64748b;--line:#dbe2ea;--accent:#1d4ed8;--danger:#b91c1c}*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}header{background:#0f172a;color:#fff;padding:16px 4%;display:flex;justify-content:space-between;align-items:center;gap:20px;position:sticky;top:0;z-index:10}.brand strong{display:block;font-size:17px}.brand small{color:#cbd5e1}nav{display:flex;gap:6px;flex-wrap:wrap}.nav{background:transparent;color:#fff;border:1px solid #475569;padding:9px 13px;border-radius:8px;cursor:pointer}.nav.active,.nav:hover{background:#1d4ed8}main{max-width:1250px;margin:auto;padding:28px 18px}.view{display:none}.view.active{display:block}.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 5px 20px #0f172a0a}.hero{display:grid;grid-template-columns:1.6fr 1fr;gap:24px}.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700}h1{font-size:clamp(28px,5vw,46px);margin:8px 0}h2{margin:0 0 8px}h3{margin-top:0}.muted,.hint{color:var(--muted)}.hero-box{background:#eff6ff;padding:18px;border-radius:12px}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0}.stat{background:#fff;border:1px solid var(--line);padding:16px;border-radius:12px}.stat b{font-size:25px;display:block}.stat span{color:var(--muted);font-size:13px}.info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.actions{display:flex;gap:8px;flex-wrap:wrap}button,.file-btn{font:inherit;border:0;border-radius:8px;padding:10px 14px;cursor:pointer}.primary{background:var(--accent);color:#fff}.secondary{background:#e2e8f0;color:#172033}.danger{background:#fee2e2;color:var(--danger)}.ghost{background:transparent;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}input,select,textarea{font:inherit;border:1px solid #cbd5e1;border-radius:8px;padding:10px;background:#fff;color:var(--ink)}textarea{resize:vertical}.card{margin-bottom:16px}.student-picker{display:flex;gap:10px;margin:14px 0}.student-picker select{flex:1;min-height:150px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8fafc}.criteria{display:grid;gap:12px}.criterion{border:1px solid var(--line);padding:14px;border-radius:10px}.scale-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}.scale-row label{font-weight:400;flex-direction:row;align-items:center}.tabs{display:flex;gap:6px;overflow:auto;margin-bottom:12px}.tab{white-space:nowrap;background:#e2e8f0}.tab.active{background:#1d4ed8;color:white}.ref-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.ref-list div{padding:9px;border:1px solid var(--line);border-radius:8px}.ref-list span{display:inline-block;width:35px;color:var(--muted)}footer{padding:24px;text-align:center;color:var(--muted);font-size:13px}.toast{position:fixed;right:18px;bottom:18px;background:#0f172a;color:#fff;padding:12px 16px;border-radius:9px;display:none;z-index:20}.toast.show{display:block}.full{width:100%}@media(max-width:850px){header{align-items:flex-start;flex-direction:column}.hero,.info,.grid,.grid2{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.section-head{align-items:flex-start;flex-direction:column}}@media print{header,footer,.actions,.nav{display:none!important}.view{display:none!important}.view.active{display:block}.card{box-shadow:none}}
+</style></head>
 <body>
-<header class="topbar">
-  <div class="brand">
-    <div class="brand-mark">MMI</div>
-    <div><strong>MAAHAD AL MASHOOR AL ISLAMI</strong><small>BSBL 2026 • Borang Semakan Buku Latihan Pelajar</small></div>
-  </div>
-  <nav>
-    <button data-view="dashboard" class="nav-btn active">Utama</button>
-    <button data-view="form" class="nav-btn">Borang Semakan</button>
-    <button data-view="records" class="nav-btn">Rekod</button>
-    <button data-view="reference" class="nav-btn">Data Asal</button>
-  </nav>
-</header>
-
-<main class="container">
-  <section id="dashboard" class="view active">
-    <div class="hero">
-      <div>
-        <p class="eyebrow">SISTEM DIGITAL • 2026</p>
-        <h1>Borang Semakan Buku Latihan Pelajar</h1>
-        <p>Versi aplikasi yang menggunakan data rujukan daripada fail Excel asal. Data asal dikekalkan dan dipisahkan daripada rekod semakan baharu.</p>
-        <button class="primary" onclick="showView('form')">+ Buka Borang</button>
-      </div>
-      <div class="hero-card">
-        <span>Data sumber</span><strong>BORANG SEMAK BUKU LATIHAN MMI 2026.xlsx</strong>
-        <small>Hash sumber: <code>888263b6e1028e277b3c729aff9081ce7545c4161dea2adb9a6cdf0bf2956982</code></small>
-      </div>
-    </div>
-    <div class="stats" id="stats"></div>
-    <div class="info-grid">
-      <article><h3>Data asal</h3><p>Senarai tingkatan, guru, mata pelajaran, pencerapan, skala dan nama murid dimuatkan daripada workbook tanpa mengubah kandungan asal.</p></article>
-      <article><h3>Rekod</h3><p>Semakan disimpan pada peranti ini menggunakan LocalStorage. Anda boleh eksport dan import fail JSON untuk sandaran.</p></article>
-      <article><h3>GitHub Pages</h3><p>Aplikasi ini statik dan sesuai diterbitkan terus sebagai GitHub Pages. Fail <code>data/data.json</code> menjadi sumber data aplikasi.</p></article>
-    </div>
-  </section>
-
-  <section id="form" class="view">
-    <div class="section-head"><div><p class="eyebrow">BORANG</p><h2>Semakan Buku Latihan</h2></div><div class="actions"><button class="ghost" id="resetForm">Kosongkan</button><button class="secondary" id="printForm">Cetak</button></div></div>
-    <form id="checkForm">
-      <div class="card">
-        <h3>Maklumat Semakan</h3>
-        <div class="grid-3">
-          <label>Tingkatan<select id="tingkatan" required></select></label>
-          <label>Nama Guru<select id="guru" required></select></label>
-          <label>Mata Pelajaran<select id="subject" required></select></label>
-          <label>Pencerapan<select id="cerapan" required></select></label>
-          <label class="span-2">Tajuk / Buku Latihan<input id="bookTitle" placeholder="Masukkan tajuk / nama buku latihan"></label>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-head"><div><h3>Nama Murid & Skor</h3><p>Pilih kelas dan jantina untuk mengisi sehingga 10 baris seperti borang asal.</p></div><div class="class-total" id="classTotal">0 murid</div></div>
-        <div class="grid-2">
-          <label>Kelas rujukan<select id="classRef"></select></label>
-          <label>Jantina<select id="gender"><option value="LELAKI">LELAKI</option><option value="PEREMPUAN">PEREMPUAN</option></select></label>
-        </div>
-        <div class="student-picker"><select id="studentPool" size="7"></select><button type="button" id="addStudent" class="secondary">Tambah →</button></div>
-        <div class="table-wrap">
-          <table id="studentTable"><thead><tr><th>BIL.</th><th>NAMA MURID</th><th>SKOR</th><th></th></tr></thead><tbody></tbody></table>
-        </div>
-        <p class="hint">Skala skor mengikut petunjuk asal: 1 Perlu Diperbaiki • 2 Kurang Memuaskan • 3 Memuaskan • 4 Baik.</p>
-      </div>
-
-      <div class="card">
-        <h3>Penilaian</h3>
-        <div id="criteria"></div>
-      </div>
-
-      <div class="card">
-        <h3>Maklumat Penyemak</h3>
-        <div class="grid-2">
-          <label>Nama Penyemak<input id="reviewer" placeholder="Nama penyemak"></label>
-          <label>Tarikh<input id="date" type="date"></label>
-          <label class="span-2">Ulasan Penyemak<textarea id="comments" rows="4"></textarea></label>
-        </div>
-      </div>
-      <button class="primary full" type="submit">Simpan Rekod Semakan</button>
-    </form>
-  </section>
-
-  <section id="records" class="view">
-    <div class="section-head"><div><p class="eyebrow">REKOD</p><h2>Rekod Semakan</h2></div><div class="actions"><button class="secondary" id="exportRecords">Eksport JSON</button><button class="secondary" id="exportCsv">Eksport CSV</button><label class="file-btn secondary">Import JSON<input type="file" id="importRecords" accept=".json" hidden></label></div></div>
-    <div class="card">
-      <div class="filters grid-3"><label>Cari<input id="searchRecords" placeholder="Guru, kelas, murid..."></label><label>Tingkatan<select id="filterClass"></select></label><label>Mata Pelajaran<select id="filterSubject"></select></label></div>
-      <div class="table-wrap"><table id="recordsTable"><thead><tr><th>Tarikh</th><th>Tingkatan</th><th>Guru</th><th>Mata Pelajaran</th><th>Murid</th><th>Skor</th><th></th></tr></thead><tbody></tbody></table></div>
-    </div>
-  </section>
-
-  <section id="reference" class="view">
-    <div class="section-head"><div><p class="eyebrow">RUJUKAN</p><h2>Data Asal</h2><p>Paparan ini adalah read-only.</p></div></div>
-    <div class="tabs" id="refTabs"></div>
-    <div class="card" id="refContent"></div>
-  </section>
-</main>
-<footer><span>BSBL MMI 2026</span><span>Data asal tidak diubah • Aplikasi statik GitHub Pages</span></footer>
-<div id="toast" class="toast"></div>
+<header><div class="brand"><strong>MAAHAD AL MASHOOR AL ISLAMI</strong><small>BSBL MMI 2026 • Borang Semakan Buku Latihan Pelajar</small></div><nav><button class="nav active" data-view="home">Utama</button><button class="nav" data-view="form">Borang Semakan</button><button class="nav" data-view="records">Rekod</button><button class="nav" data-view="source">Data Asal</button></nav></header>
+<main>
+<section id="home" class="view active"><div class="hero"><div><p class="eyebrow">SISTEM DIGITAL 2026</p><h1>Borang Semakan Buku Latihan Pelajar</h1><p>Aplikasi membaca terus workbook Excel asal yang disimpan dalam repositori GitHub. Senarai murid, guru, tingkatan, mata pelajaran dan skala tidak ditaip semula.</p><button class="primary" onclick="showView('form')">Buka Borang</button></div><div class="hero-box"><b>Fail sumber</b><p>BORANG SEMAK BUKU LATIHAN MMI 2026.xlsx</p><span class="muted">Data asal dibaca secara read-only daripada fail Excel.</span></div></div><div id="stats" class="stats"></div><div class="info"><div class="card"><h3>Data asal</h3><p>Workbook asal kekal sebagai sumber rujukan.</p></div><div class="card"><h3>Rekod</h3><p>Rekod semakan disimpan pada pelayar ini dan boleh dieksport JSON/CSV.</p></div><div class="card"><h3>Cetak</h3><p>Borang dan rekod boleh dicetak menggunakan fungsi cetak pelayar.</p></div></div></section>
+<section id="form" class="view"><div class="section-head"><div><p class="eyebrow">BORANG</p><h2>Semakan Buku Latihan</h2></div><div class="actions"><button class="ghost" id="reset">Kosongkan</button><button class="secondary" onclick="window.print()">Cetak</button></div></div><form id="formEl"><div class="card"><h3>Maklumat Semakan</h3><div class="grid"><label>Tingkatan<select id="tingkatan" required></select></label><label>Nama Guru<select id="guru" required></select></label><label>Mata Pelajaran<select id="subject" required></select></label><label>Pencerapan<select id="cerapan" required></select></label><label>Tajuk / Buku Latihan<input id="book"></label></div></div>
+<div class="card"><h3>Nama Murid & Skor</h3><p class="hint">Pilih senarai tingkatan dan jantina. Maksimum 10 murid setiap borang.</p><div class="grid2"><label>Senarai Tingkatan<select id="classRef"></select></label><label>Jantina<select id="gender"><option>LELAKI</option><option>PEREMPUAN</option></select></label></div><div class="student-picker"><select id="pool" size="7"></select><button type="button" class="secondary" id="add">Tambah →</button></div><div class="table-wrap"><table><thead><tr><th>Bil.</th><th>Nama Murid</th><th>Skor</th><th></th></tr></thead><tbody id="students"></tbody></table></div></div>
+<div class="card"><h3>Penilaian</h3><div id="criteria" class="criteria"></div></div><div class="card"><h3>Maklumat Penyemak</h3><div class="grid2"><label>Nama Penyemak<input id="reviewer"></label><label>Tarikh<input id="date" type="date"></label><label>Ulasan<textarea id="comments" rows="4"></textarea></label></div></div><button class="primary full" type="submit">Simpan Rekod Semakan</button></form></section>
+<section id="records" class="view"><div class="section-head"><div><p class="eyebrow">REKOD</p><h2>Rekod Semakan</h2></div><div class="actions"><button class="secondary" id="json">Eksport JSON</button><button class="secondary" id="csv">Eksport CSV</button><button class="secondary" onclick="window.print()">Cetak</button></div></div><div class="card"><div class="grid"><label>Cari<input id="search" placeholder="Guru, murid, tingkatan..."></label><label>Tingkatan<select id="filterT"></select></label><label>Mata Pelajaran<select id="filterS"></select></label></div><div class="table-wrap" style="margin-top:15px"><table><thead><tr><th>Tarikh</th><th>Tingkatan</th><th>Guru</th><th>Mata Pelajaran</th><th>Murid</th><th>Skor</th><th></th></tr></thead><tbody id="recordRows"></tbody></table></div></div></section>
+<section id="source" class="view"><div class="section-head"><div><p class="eyebrow">RUJUKAN</p><h2>Data Asal</h2><p class="muted">Paparan read-only daripada workbook.</p></div></div><div id="tabs" class="tabs"></div><div class="card" id="sourceContent"></div></section>
+</main><footer>BSBL MMI 2026 • Data asal tidak diubah</footer><div id="toast" class="toast"></div>
 <script>
-const DATA_URL = "data/data.json";
-let DATA = null;
-let records = JSON.parse(localStorage.getItem("mmi_bsbl_records_v1") || "[]");
-let students = [];
-
-const $ = s => document.querySelector(s);
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function showView(id){ document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id)); document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===id)); window.scrollTo({top:0,behavior:'smooth'}); if(id==='records') renderRecords(); }
-document.querySelectorAll('.nav-btn').forEach(b=>b.onclick=()=>showView(b.dataset.view));
-
-async function init(){
-  const r=await fetch(DATA_URL); DATA=await r.json();
-  populateSelect('#tingkatan', DATA.tingkatan, true);
-  populateSelect('#guru', DATA.guru, true);
-  populateSelect('#subject', DATA.mataPelajaran, true);
-  populateSelect('#cerapan', DATA.cerapan, false);
-  populateSelect('#filterClass', DATA.tingkatan, true, 'Semua tingkatan');
-  populateSelect('#filterSubject', DATA.mataPelajaran, true, 'Semua mata pelajaran');
-  populateSelect('#classRef', Object.keys(DATA.kelas).map(k=>'T'+k), false);
-  $('#date').value=new Date().toISOString().slice(0,10);
-  renderCriteria(); updateClassPool(); renderStats(); renderReference();
-}
-function populateSelect(sel, arr, preserve, first="Pilih..."){
-  const el=$(sel); el.innerHTML = (first?`<option value="">${esc(first)}</option>`:"") + arr.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('');
-}
-function classNumber(){ return ($('#tingkatan').value.match(/^(\d)/)||[])[1] || '1'; }
-function updateClassPool(){
-  const cls=$('#classRef').value || ('T'+classNumber());
-  const n=cls.replace('T','');
-  const g=$('#gender').value;
-  const list=(DATA.kelas[n]?.[g]||[]);
-  $('#classTotal').textContent=`${(DATA.kelas[n]?.LELAKI||[]).length+(DATA.kelas[n]?.PEREMPUAN||[]).length} murid dalam senarai T${n}`;
-  $('#studentPool').innerHTML=list.map((x,i)=>`<option value="${i}">${esc(x)}</option>`).join('');
-}
-function renderCriteria(){
-  $('#criteria').innerHTML=DATA.scaleStatements.map((s,i)=>`<div class="criterion"><div><b>${i+1}.</b> ${esc(s)}</div><div class="scale-row">${DATA.scale.map((x,j)=>`<label><input type="radio" name="c${i}" value="${j+1}" ${j===0?'':''}> <span>${j+1}</span> ${esc(x)}</label>`).join('')}</div></div>`).join('');
-}
-function addStudent(){
-  const opt=$('#studentPool').selectedOptions[0]; if(!opt) return;
-  if(students.length>=10){toast('Maksimum 10 murid seperti borang asal.');return;}
-  const name=opt.textContent; if(students.some(x=>x.name===name)){toast('Murid itu sudah dipilih.');return;}
-  students.push({name,score:""}); renderStudents();
-}
-function renderStudents(){
-  $('#studentTable tbody').innerHTML=students.map((s,i)=>`<tr><td>${i+1}</td><td>${esc(s.name)}</td><td><select data-i="${i}" class="score"><option value="">—</option>${DATA.scale.map((x,j)=>`<option value="${j+1}" ${String(s.score)===String(j+1)?'selected':''}>${j+1} — ${esc(x)}</option>`).join('')}</select></td><td><button type="button" class="danger remove" data-i="${i}">Buang</button></td></tr>`).join('');
-  document.querySelectorAll('.score').forEach(e=>e.onchange=()=>{students[+e.dataset.i].score=e.value;});
-  document.querySelectorAll('.remove').forEach(e=>e.onclick=()=>{students.splice(+e.dataset.i,1);renderStudents();});
-}
-function saveRecords(){localStorage.setItem("mmi_bsbl_records_v1",JSON.stringify(records));}
-function formData(){
-  const criteria=DATA.scaleStatements.map((_,i)=>document.querySelector(`input[name="c${i}"]:checked`)?.value||"");
-  return {id:crypto.randomUUID(),savedAt:new Date().toISOString(),tingkatan:$('#tingkatan').value,guru:$('#guru').value,subject:$('#subject').value,cerapan:$('#cerapan').value,bookTitle:$('#bookTitle').value,students:JSON.parse(JSON.stringify(students)),criteria,reviewer:$('#reviewer').value,date:$('#date').value,comments:$('#comments').value};
-}
-$('#checkForm').onsubmit=e=>{e.preventDefault(); if(!students.length){toast('Sila pilih sekurang-kurangnya seorang murid.');return;} records.unshift(formData()); saveRecords(); toast('Rekod berjaya disimpan.'); students=[]; renderStudents(); $('#checkForm').reset(); $('#date').value=new Date().toISOString().slice(0,10); showView('records');};
-$('#addStudent').onclick=addStudent;
-$('#gender').onchange=updateClassPool; $('#classRef').onchange=updateClassPool;
-$('#resetForm').onclick=()=>{if(confirm('Kosongkan borang ini?')){$('#checkForm').reset();students=[];renderStudents();$('#date').value=new Date().toISOString().slice(0,10);}};
-$('#printForm').onclick=()=>window.print();
-
-function renderStats(){
-  const total=Object.values(DATA.kelas).reduce((a,k)=>a+k.LELAKI.length+k.PEREMPUAN.length,0);
-  $('#stats').innerHTML=`<div><b>${DATA.tingkatan.length}</b><span>Tingkatan</span></div><div><b>${DATA.guru.length}</b><span>Guru</span></div><div><b>${DATA.mataPelajaran.length}</b><span>Mata pelajaran</span></div><div><b>${total}</b><span>Nama murid</span></div><div><b>${records.length}</b><span>Rekod tempatan</span></div>`;
-}
-function renderRecords(){
-  const q=$('#searchRecords').value.toLowerCase(), fc=$('#filterClass').value, fs=$('#filterSubject').value;
-  const rows=records.filter(r=>(!fc||r.tingkatan===fc)&&(!fs||r.subject===fs)&&JSON.stringify(r).toLowerCase().includes(q));
-  $('#recordsTable tbody').innerHTML=rows.length?rows.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.tingkatan)}</td><td>${esc(r.guru)}</td><td>${esc(r.subject)}</td><td>${r.students.map(s=>esc(s.name)).join('<br>')}</td><td>${r.students.map(s=>esc(s.score||'—')).join('<br>')}</td><td><button class="danger" onclick="deleteRecord('${r.id}')">Padam</button></td></tr>`).join(''):`<tr><td colspan="7" class="empty">Tiada rekod.</td></tr>`;
-  renderStats();
-}
-function deleteRecord(id){if(confirm('Padam rekod ini?')){records=records.filter(r=>r.id!==id);saveRecords();renderRecords();}}
-$('#searchRecords').oninput=renderRecords; $('#filterClass').onchange=renderRecords; $('#filterSubject').onchange=renderRecords;
-
-$('#exportRecords').onclick=()=>download('mmi-bsbl-rekod.json',JSON.stringify(records,null,2),'application/json');
-$('#exportCsv').onclick=()=>{
-  const head=['Tarikh','Tingkatan','Guru','Mata Pelajaran','Pencerapan','Tajuk/Buku','Nama Murid','Skor','Nama Penyemak','Ulasan'];
-  const rows=[head,...records.flatMap(r=>r.students.map(s=>[r.date,r.tingkatan,r.guru,r.subject,r.cerapan,r.bookTitle,s.name,s.score,r.reviewer,r.comments]))];
-  download('mmi-bsbl-rekod.csv',rows.map(row=>row.map(v=>`"${String(v??'').replaceAll('"','""')}"`).join(',')).join('\\n'),'text/csv;charset=utf-8');
-};
-$('#importRecords').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!Array.isArray(x))throw Error();records=[...x,...records];saveRecords();renderRecords();toast('Import berjaya.');}catch{toast('Fail JSON tidak sah.');}e.target.value='';};
-function download(name,text,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();URL.revokeObjectURL(a.href);}
-function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
-function renderReference(){
-  const tabs=[['tingkatan','Tingkatan'],['guru','Nama Guru'],['mataPelajaran','Mata Pelajaran'],['scale','Skala'],['scaleStatements','Pernyataan Skala'],['skorLabels','Skor'],['cerapan','Pencerapan']];
-  $('#refTabs').innerHTML=tabs.map(([k,l],i)=>`<button class="tab ${i===0?'active':''}" data-ref="${k}">${l}</button>`).join('');
-  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');showRef(b.dataset.ref);});
-  showRef('tingkatan');
-}
-function showRef(key){
-  let arr=DATA[key]||[];
-  if(key==='scale') arr=DATA.scale.map((x,i)=>`${i+1} — ${x}`);
-  if(key==='scaleStatements') arr=DATA.scaleStatements.map((x,i)=>`${i+1}. ${x}`);
-  if(key==='skorLabels') arr=DATA.skorLabels;
-  $('#refContent').innerHTML=`<div class="ref-list">${arr.map((x,i)=>`<div><span>${i+1}</span>${esc(x)}</div>`).join('')}</div>`;
-}
-init().catch(err=>{document.body.innerHTML='<main class="container"><div class="card"><h2>Gagal memuat data</h2><p>Pastikan folder <code>data/data.json</code> tersedia apabila aplikasi dijalankan melalui GitHub Pages.</p></div></main>';console.error(err);});
-</script>
-</body>
-</html>
+const FILE='./BORANG SEMAK BUKU LATIHAN MMI 2026.xlsx';let D=null,selected=[],records=JSON.parse(localStorage.getItem('bsbl_mmi_2026')||'[]');const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function showView(id){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.view===id));if(id==='records')renderRecords();scrollTo(0,0)}document.querySelectorAll('.nav').forEach(x=>x.onclick=()=>showView(x.dataset.view));
+function vals(sheet,col=1,start=1){return D[sheet].slice(start).map(r=>r[col-1]).filter(x=>x!==undefined&&x!==null&&x!=='').map(String)}function fill(id,a,first='Pilih...'){$(id).innerHTML='<option value="">'+first+'</option>'+a.map(x=>'<option>'+esc(x)+'</option>').join('')}
+async function init(){const buf=await fetch(FILE).then(r=>{if(!r.ok)throw Error('Fail Excel tidak dapat dicapai');return r.arrayBuffer()});const wb=XLSX.read(buf,{type:'array'});D={};wb.SheetNames.forEach(n=>D[n]=XLSX.utils.sheet_to_json(wb.Sheets[n],{header:1,defval:null}));const ting=vals('TINGKATAN',1,3),guru=vals('NAMA GURU',1,3),sub=vals('MATAPELAJARAN',1,2),scale=vals('SKALA',1,4),stat=vals('PENYATAAN SKALA',1,4),cer=vals('CERAPAN',1,3);fill('#tingkatan',ting);fill('#guru',guru);fill('#subject',sub);fill('#cerapan',cer);fill('#filterT',ting,'Semua');fill('#filterS',sub,'Semua');$('#date').value=new Date().toISOString().slice(0,10);$('#classRef').innerHTML=['1','2','3','4','5'].map(x=>'<option value="'+x+'">T'+x+'</option>').join('');renderCriteria(stat,scale);updatePool();renderStats();renderSource(ting,guru,sub,scale,stat,cer);renderRecords()}
+function studentsFor(n,g){let rows=D['LIST T'+n]||[],header=rows[1]||[],col=header.findIndex(x=>String(x||'').toUpperCase().includes(g));if(col<0)return[];return rows.slice(2).map(r=>r[col]).filter(x=>x!==null&&x!==undefined&&x!=='').map(String)}
+function updatePool(){let a=studentsFor($('#classRef').value,$('#gender').value);$('#pool').innerHTML=a.map(x=>'<option>'+esc(x)+'</option>').join('')}
+function renderCriteria(stat,scale){$('#criteria').innerHTML=stat.map((s,i)=>'<div class="criterion"><b>'+(i+1)+'. '+esc(s)+'</b><div class="scale-row">'+scale.map((x,j)=>'<label><input type="radio" name="c'+i+'" value="'+(j+1)+'">'+(j+1)+' — '+esc(x)+'</label>').join('')+'</div></div>').join('')}
+$('#classRef').onchange=updatePool;$('#gender').onchange=updatePool;$('#add').onclick=()=>{let o=$('#pool').selectedOptions[0];if(!o)return;if(selected.length>=10)return toast('Maksimum 10 murid.');if(selected.some(x=>x.name===o.textContent))return toast('Murid sudah dipilih.');selected.push({name:o.textContent,score:''});renderStudents()}
+function renderStudents(){$('#students').innerHTML=selected.map((s,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(s.name)+'</td><td><select onchange="selected['+i+'].score=this.value"><option value="">—</option>'+vals('SKALA',1,4).map((x,j)=>'<option value="'+(j+1)+'" '+(String(s.score)===String(j+1)?'selected':'')+'>'+(j+1)+' — '+esc(x)+'</option>').join('')+'</select></td><td><button type="button" class="danger" onclick="selected.splice('+i+',1);renderStudents()">Buang</button></td></tr>').join('')}
+$('#formEl').onsubmit=e=>{e.preventDefault();if(!selected.length)return toast('Pilih sekurang-kurangnya seorang murid.');let stat=vals('PENYATAAN SKALA',1,4),r={id:Date.now(),date:$('#date').value,tingkatan:$('#tingkatan').value,guru:$('#guru').value,subject:$('#subject').value,cerapan:$('#cerapan').value,book:$('#book').value,students:JSON.parse(JSON.stringify(selected)),criteria:stat.map((_,i)=>document.querySelector('input[name="c'+i+'"]:checked')?.value||''),reviewer:$('#reviewer').value,comments:$('#comments').value};records.unshift(r);localStorage.setItem('bsbl_mmi_2026',JSON.stringify(records));selected=[];$('#formEl').reset();$('#date').value=new Date().toISOString().slice(0,10);renderStudents();toast('Rekod disimpan.');showView('records')};$('#reset').onclick=()=>{if(confirm('Kosongkan borang?')){$('#formEl').reset();selected=[];renderStudents();$('#date').value=new Date().toISOString().slice(0,10)}};
+function renderStats(){let total=0;for(let n=1;n<=5;n++)total+=studentsFor(String(n),'LELAKI').length+studentsFor(String(n),'PEREMPUAN').length;$('#stats').innerHTML=[['5','Tingkatan'],[vals('NAMA GURU',1,3).length,'Guru'],[vals('MATAPELAJARAN',1,2).length,'Mata pelajaran'],[total,'Nama murid'],[records.length,'Rekod tempatan']].map(x=>'<div class="stat"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('')}
+function renderRecords(){let q=($('#search')?.value||'').toLowerCase(),t=$('#filterT')?.value||'',s=$('#filterS')?.value||'',rows=records.filter(r=>(!t||r.tingkatan===t)&&(!s||r.subject===s)&&JSON.stringify(r).toLowerCase().includes(q));$('#recordRows').innerHTML=rows.length?rows.map(r=>'<tr><td>'+esc(r.date)+'</td><td>'+esc(r.tingkatan)+'</td><td>'+esc(r.guru)+'</td><td>'+esc(r.subject)+'</td><td>'+r.students.map(x=>esc(x.name)).join('<br>')+'</td><td>'+r.students.map(x=>esc(x.score||'—')).join('<br>')+'</td><td><button class="danger" onclick="del('+r.id+')">Padam</button></td></tr>').join(''):'<tr><td colspan="7">Tiada rekod.</td></tr>'}
+function del(id){if(confirm('Padam rekod ini?')){records=records.filter(x=>x.id!==id);localStorage.setItem('bsbl_mmi_2026',JSON.stringify(records));renderRecords();renderStats()}}$('#search').oninput=renderRecords;$('#filterT').onchange=renderRecords;$('#filterS').onchange=renderRecords;
+function dl(name,text,type){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click()}$('#json').onclick=()=>dl('BSBL-MMI-2026-rekod.json',JSON.stringify(records,null,2),'application/json');$('#csv').onclick=()=>{let h=['Tarikh','Tingkatan','Guru','Mata Pelajaran','Pencerapan','Buku','Murid','Skor','Penyemak','Ulasan'],rows=[h,...records.flatMap(r=>r.students.map(s=>[r.date,r.tingkatan,r.guru,r.subject,r.cerapan,r.book,s.name,s.score,r.reviewer,r.comments]))];dl('BSBL-MMI-2026-rekod.csv',rows.map(a=>a.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\n'),'text/csv')};
+function renderSource(ting,guru,sub,scale,stat,cer){let tabs=[['ting','Tingkatan',ting],['guru','Nama Guru',guru],['sub','Mata Pelajaran',sub],['scale','Skala',scale],['stat','Pernyataan Skala',stat],['cer','Pencerapan',cer]];$('#tabs').innerHTML=tabs.map((x,i)=>'<button class="tab '+(i?'':'active')+'" onclick="sourceTab(\''+x[0]+'\')">'+x[1]+'</button>').join('');window._tabs=Object.fromEntries(tabs.map(x=>[x[0],x[2]]));sourceTab('ting')}
+function sourceTab(k){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));let names={ting:'Tingkatan',guru:'Nama Guru',sub:'Mata Pelajaran',scale:'Skala',stat:'Pernyataan Skala',cer:'Pencerapan'};document.querySelectorAll('.tab').forEach(x=>{if(x.textContent===names[k])x.classList.add('active')});$('#sourceContent').innerHTML='<div class="ref-list">'+window._tabs[k].map((x,i)=>'<div><span>'+(i+1)+'</span>'+esc(x)+'</div>').join('')+'</div>'}
+function toast(x){let t=$('#toast');t.textContent=x;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
+init().catch(e=>{document.querySelector('main').innerHTML='<div class="card"><h2>Data belum dapat dimuat</h2><p>'+esc(e.message)+'</p><p>Pastikan GitHub Pages telah diaktifkan dan fail Excel berada di root repositori.</p></div>'})
+</script></body></html>
